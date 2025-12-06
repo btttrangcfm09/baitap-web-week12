@@ -1,0 +1,36 @@
+.student-table {
+  margin: 32px auto;
+  border-collapse: collapse;
+  min-width: 400px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.student-table th, 
+.student-table td {
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+}
+
+.student-table th {
+  background: #282c34;
+  color: #fff;
+}
+
+.student-table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.edit-link {
+  color: #2d7ff9;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.edit-link:hover {
+  background: #e3f2fd;
+  text-decoration: underline;
+}

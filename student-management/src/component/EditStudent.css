@@ -1,0 +1,81 @@
+/* Bài 3: Bước 2: Tạo giao diện và chức năng chỉnh sửa thông tin sinh viên */
+.edit-student-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.edit-student-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d7ff9;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  border-color: #2d7ff9;
+  outline: none;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2d7ff9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-bottom: 10px;
+}
+
+.submit-btn:hover {
+  background: #1a5fcc;
+}
+
+.submit-btn:disabled {
+  background: #888;
+  cursor: not-allowed;
+}
+
+.cancel-btn {
+  width: 100%;
+  padding: 10px;
+  background: #888;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn:hover {
+  background: #666;
+}
