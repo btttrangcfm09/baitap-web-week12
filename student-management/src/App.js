@@ -8,17 +8,41 @@ import EditStudent from './component/EditStudent';
 
 function HomePage({ students, loading, error, fetchStudents }) {
   const location = useLocation();
+  // Bài 5: Bước 1: Thêm ô tìm kiếm trên giao diện
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchStudents();
   }, [location.key]);
 
+  // Bài 5: Bước 2: Lọc danh sách dựa trên từ khóa (lọc trên client)
+  const filteredStudents = students.filter(s =>
+    s.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <h1>Danh sách học sinh</h1>
+      {/* Bài 5: Bước 1: Thêm ô tìm kiếm */}
+      <div style={{ marginBottom: 20 }}>
+        <input
+          type="text"
+          placeholder="Tìm kiếm theo tên..."
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+          style={{
+            padding: '8px 12px',
+            fontSize: 16,
+            width: 300,
+            borderRadius: 6,
+            border: '1px solid #d0d0d0'
+          }}
+        />
+      </div>
       {loading && <p>Đang tải dữ liệu...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {!loading && !error && <StudentTable students={students} onDelete={fetchStudents} />}
+      {/* Bài 5: Bước 3: Cập nhật hiển thị theo thời gian thực - sử dụng filteredStudents */}
+      {!loading && !error && <StudentTable students={filteredStudents} onDelete={fetchStudents} />}
     </div>
   );
 }
