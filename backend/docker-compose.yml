@@ -1,0 +1,10 @@
+# Bài 1: Bước 3: Thiết lập MongoDB với Docker Compose
+version: '3' # Docker Compose version
+services: # Define the services/containers
+  mongodb: # MongoDB service
+    image: mongo:latest # Use the latest MongoDB image
+    container_name: student-mongo # Name of the container
+    ports: 
+      - "27017:27017" # Map host port 27017 to container port 27017
+    volumes: 
+      - ./mongodbdata:/data/db # Lưu dữ liệu của MongoDB vào thư mục mongodbdata trên máy host để dữ liệu không bị mất khi container bị xóa.
