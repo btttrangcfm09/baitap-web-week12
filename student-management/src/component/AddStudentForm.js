@@ -1,8 +1,10 @@
 // Bài 2: Bước 2: Tạo giao diện Form thêm học sinh
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './AddStudentForm.css';
 
 function AddStudentForm({ onAddStudent }) {
+	const navigate = useNavigate();
 	const [form, setForm] = useState({
 		name: '',
 		age: '',
@@ -16,7 +18,10 @@ function AddStudentForm({ onAddStudent }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (onAddStudent) onAddStudent(form);
+		if (onAddStudent) {
+			onAddStudent(form);
+			navigate('/');
+		}
 		setForm({ name: '', age: '', class: '', email: '' });
 	};
 
