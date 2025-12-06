@@ -1,0 +1,11 @@
+/node_modules
+/mongodbdata
+.env
+/logs
+.DS_Store
+npm-debug.log
+.vscode
+dist
+coverage
+.idea
+*.local
