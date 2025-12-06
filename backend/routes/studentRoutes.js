@@ -13,4 +13,15 @@ router.get('/', async (req, res) => {
     }
 });
 
+// Bài 2: Bước 1: Tạo API thêm học sinh (HTPP POST)
+router.post('/', async (req, res) => {
+    try {
+        const newStudent = new Student(req.body);
+        const savedStudent = await newStudent.save();
+        res.status(201).json(savedStudent);
+    } catch (err) { 
+        res.status(400).json({ error: err.message });
+        console.log(err);
+    }
+});
 export default router;

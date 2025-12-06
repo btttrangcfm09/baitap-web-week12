@@ -1,0 +1,50 @@
+/* Bài 2: Bước 2: Tạo giao diện Form thêm học sinh */
+.add-student-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.add-student-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2d7ff9;
+}
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+.form-group input {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d0d0d0;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s;
+}
+.form-group input:focus {
+  border-color: #2d7ff9;
+  outline: none;
+}
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2d7ff9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.submit-btn:hover {
+  background: #1a5fcc;
+}
