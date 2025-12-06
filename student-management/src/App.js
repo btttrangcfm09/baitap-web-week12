@@ -10,6 +10,8 @@ function HomePage({ students, loading, error, fetchStudents }) {
   const location = useLocation();
   // Bài 5: Bước 1: Thêm ô tìm kiếm trên giao diện
   const [searchTerm, setSearchTerm] = useState('');
+  // Bài 6: Bước 1: Thêm nút hoặc điều khiển để sắp xếp
+  const [sortAsc, setSortAsc] = useState(true);
 
   useEffect(() => {
     fetchStudents();
@@ -19,6 +21,15 @@ function HomePage({ students, loading, error, fetchStudents }) {
   const filteredStudents = students.filter(s =>
     s.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  // Bài 6: Bước 2: Thực hiện sắp xếp trên danh sách
+  const sortedStudents = [...filteredStudents].sort((a, b) => {
+    const nameA = a.name.toLowerCase();
+    const nameB = b.name.toLowerCase();
+    if (nameA < nameB) return sortAsc ? -1 : 1;
+    if (nameA > nameB) return sortAsc ? 1 : -1;
+    return 0;
+  });
 
   return (
     <div>
@@ -35,14 +46,31 @@ function HomePage({ students, loading, error, fetchStudents }) {
             fontSize: 16,
             width: 300,
             borderRadius: 6,
-            border: '1px solid #d0d0d0'
+            border: '1px solid #d0d0d0',
+            marginRight: 10
           }}
         />
+        {/* Bài 6: Bước 1: Thêm nút toggle sắp xếp */}
+        <button 
+          onClick={() => setSortAsc(prev => !prev)}
+          style={{
+            padding: '8px 16px',
+            fontSize: 16,
+            borderRadius: 6,
+            border: '1px solid #2d7ff9',
+            background: '#2d7ff9',
+            color: '#fff',
+            cursor: 'pointer',
+            fontWeight: 500
+          }}
+        >
+          Sắp xếp theo tên: {sortAsc ? 'A → Z' : 'Z → A'}
+        </button>
       </div>
       {loading && <p>Đang tải dữ liệu...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {/* Bài 5: Bước 3: Cập nhật hiển thị theo thời gian thực - sử dụng filteredStudents */}
-      {!loading && !error && <StudentTable students={filteredStudents} onDelete={fetchStudents} />}
+      {/* Bài 6: Bước 3: Hiển thị danh sách đã sắp xếp - sử dụng sortedStudents */}
+      {!loading && !error && <StudentTable students={sortedStudents} onDelete={fetchStudents} />}
     </div>
   );
 }

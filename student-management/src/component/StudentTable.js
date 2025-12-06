@@ -30,7 +30,7 @@ function StudentTable({ students, onDelete }) {
         </tr>
       </thead>
       <tbody>
-        {/* Bài 5: Hiển thị danh sách đã được lọc từ parent component */}
+        {/* Bài 6: Hiển thị danh sách đã được lọc và sắp xếp từ parent component */}
         {students.map((student, idx) => (
           <tr key={student._id || idx}>
             <td>{idx + 1}</td>
