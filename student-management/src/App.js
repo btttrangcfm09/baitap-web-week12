@@ -18,7 +18,7 @@ function HomePage({ students, loading, error, fetchStudents }) {
       <h1>Danh sách học sinh</h1>
       {loading && <p>Đang tải dữ liệu...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      {!loading && !error && <StudentTable students={students} />}
+      {!loading && !error && <StudentTable students={students} onDelete={fetchStudents} />}
     </div>
   );
 }
